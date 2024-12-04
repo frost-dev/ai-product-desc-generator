@@ -27,8 +27,9 @@ export default function Home() {
 	}, []);
 
 	const handleRemoveImage = () => {
-		setPreview(null); // Clear the image preview
-		setDescription(null); // Clear the description
+		setPreview(null);
+		setDescription(null);
+		setFile(null);
 	};
 
 	const handleGenerateDescription = async () => {
@@ -48,7 +49,6 @@ export default function Home() {
 				console.error('Upload preset is not defined!');
 			}
 
-			// Upload the image to Cloudinary
 			const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload?folder=cebuana_uploads`, {
 				method: 'POST',
 				body: formData,
