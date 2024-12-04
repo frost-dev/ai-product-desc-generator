@@ -38,12 +38,15 @@ export default function Home() {
 		setError(null);
 
 		try {
-			// Create FormData to upload the file to Cloudinary
 			const formData = new FormData();
 			const uploadPreset = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
 
-			formData.append('file', file);
-			formData.append('upload_preset', uploadPreset);
+			if (uploadPreset) {
+				formData.append('file', file);
+				formData.append('upload_preset', uploadPreset);
+			} else {
+				console.error('Upload preset is not defined!');
+			}
 
 			// Upload the image to Cloudinary
 			const response = await fetch(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/upload?folder=cebuana_uploads`, {
