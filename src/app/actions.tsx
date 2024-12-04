@@ -16,7 +16,7 @@ export async function generateProductDescription(imageUrl: string) {
 				{
 					role: 'user',
 					content: [
-						{ type: 'text', text: 'Write a concise, engaging product description suitable for a website. Avoid mentioning the product name, and make sure the description highlights what makes it stand out.' },
+						{ type: 'text', text: 'Write a 30-word product description based on the item in the photo. The first sentence should contain the basic product qualities like material and color.' },
 						{
 							type: 'image_url',
 							image_url: { url: imageUrl },
