@@ -24,7 +24,7 @@ export function DescriptionDisplay({ description, isLoading, error }: Descriptio
 				) : description ? (
 					<p className='whitespace-pre-wrap text-gray-700 dark:text-gray-300'>{description}</p>
 				) : (
-					<p className='text-gray-500 dark:text-gray-400'>Upload an image and click "Generate Description" to see the result.</p>
+					<p className='text-gray-500 dark:text-gray-400'>Upload an image and click &quot;Generate Description&quot; to see the result.</p>
 				)}
 			</CardContent>
 		</Card>

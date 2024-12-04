@@ -58,7 +58,6 @@ export default function Home() {
 			}
 
 			const imageUrl = result.secure_url;
-			const publicId = result.public_id;
 
 			const { description, error } = await generateProductDescription(imageUrl);
 
