@@ -6,12 +6,13 @@ import { DescriptionDisplay } from './components/description-display';
 import { generateProductDescription } from './actions';
 import { Button } from '@/components/ui/button';
 import { Wand2 } from 'lucide-react';
-
+import { ProductNameInput } from './components/product-name-input';
 export default function Home() {
 	const [file, setFile] = useState<File | null>(null);
 	const [description, setDescription] = useState<string | null | undefined>(null);
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
+	const [productName, setProductName] = useState<string>('');
 	const [preview, setPreview] = useState<string | null>(null);
 
 	const handleImageUpload = (uploadedFile: File) => {
@@ -62,7 +63,7 @@ export default function Home() {
 
 			const imageUrl = result.secure_url;
 
-			const { description, error } = await generateProductDescription(imageUrl);
+			const { description, error } = await generateProductDescription(imageUrl, productName);
 
 			if (error) {
 				setError(error);
@@ -84,16 +85,21 @@ export default function Home() {
 				<h1 className='text-4xl font-bold mb-8 text-center text-gray-800 dark:text-white'>Product Description Generator</h1>
 				<div className='grid gap-8 md:grid-cols-2'>
 					<div className='space-y-6'>
+						<ProductNameInput
+							value={productName}
+							onChange={setProductName}
+						/>
 						<ImageUpload
 							onDrop={onDrop}
 							setPreview={setPreview}
 							preview={preview}
 							onRemoveImage={handleRemoveImage}
 						/>
+
 						<Button
 							onClick={handleGenerateDescription}
 							className='w-full text-lg py-6'
-							disabled={!file || isLoading}
+							disabled={!file || isLoading || !productName}
 						>
 							<Wand2 className='w-6 h-6 mr-2' />
 							{isLoading ? 'Generating...' : 'Generate Description'}
