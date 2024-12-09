@@ -61,7 +61,7 @@ export default function Home() {
 				throw new Error('Image upload failed');
 			}
 
-			const imageUrl = result.secure_url;
+			// const imageUrl = result.secure_url;
 
 			// const { description, error } = await generateProductDescription(imageUrl);
 
