@@ -63,7 +63,7 @@ export default function Home() {
 
 			const imageUrl = result.secure_url;
 
-			const { description, error } = await generateProductDescription(imageUrl, productName);
+			const { description, error } = await generateProductDescription(imageUrl);
 
 			if (error) {
 				setError(error);

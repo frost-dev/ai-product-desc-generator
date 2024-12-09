@@ -7,8 +7,7 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function generateProductDescription(imageUrl: string, productName: string) {
+export async function generateProductDescription(imageUrl: string) {
 	try {
 		const response = await openai.chat.completions.create({
 			model: 'gpt-4o-mini',
