@@ -25,9 +25,6 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<head>
-				<title>AI Product Description Generator</title>
-			</head>
 			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
 		</html>
 	);

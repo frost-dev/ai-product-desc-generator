@@ -3,7 +3,7 @@
 import { useCallback, useState } from 'react';
 import { ImageUpload } from './components/image-upload';
 import { DescriptionDisplay } from './components/description-display';
-import { generateProductDescription } from './actions';
+// import { generateProductDescription } from './actions';
 import { Button } from '@/components/ui/button';
 import { Wand2 } from 'lucide-react';
 import { ProductNameInput } from './components/product-name-input';
@@ -63,13 +63,17 @@ export default function Home() {
 
 			const imageUrl = result.secure_url;
 
-			const { description, error } = await generateProductDescription(imageUrl);
+			// const { description, error } = await generateProductDescription(imageUrl);
 
-			if (error) {
-				setError(error);
-			} else {
-				setDescription(description);
-			}
+			// if (error) {
+			// 	setError(error);
+			// } else {
+			// 	setDescription(description);
+			// }
+			setTimeout(() => {
+				setDescription('This stunning silver ring features a brilliant central diamond and intricate bands adorned with sparkling stones. Perfect for celebrations, it embodies elegance and timeless beauty, making it an ideal gift.');
+				setError(null);
+			}, 1000);
 
 			setIsLoading(false);
 		} catch (err) {
