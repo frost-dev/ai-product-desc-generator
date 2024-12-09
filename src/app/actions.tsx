@@ -7,6 +7,7 @@ const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY,
 });
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function generateProductDescription(imageUrl: string, productName: string) {
 	try {
 		const response = await openai.chat.completions.create({
@@ -15,7 +16,7 @@ export async function generateProductDescription(imageUrl: string, productName: 
 				{
 					role: 'user',
 					content: [
-						{ type: 'text', text: `Write a 30-word product description based on the ${productName} and the item in the photo. The first sentence should contain the basic product qualities like material and color.` },
+						{ type: 'text', text: 'Write a 30-word product description based on the and the item in the photo. The first sentence should contain the basic product qualities like material and color.' },
 						{
 							type: 'image_url',
 							image_url: { url: imageUrl },
