@@ -26,6 +26,7 @@ export async function generateProductDescription(imageUrl: string) {
 		});
 
 		const text = response.choices[0].message.content;
+		console.log('text', text);
 
 		revalidatePath('/');
 		return { description: text };

@@ -73,7 +73,7 @@ export default function Home() {
 
 			setIsLoading(false);
 		} catch (err) {
-			console.error(err);
+			console.error('Error Details', err);
 			setError('An error occurred while generating the description');
 			setIsLoading(false);
 		}
